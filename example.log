@@ -1,0 +1,12 @@
+2024-05-30 18:08:30,576 - DEBUG: THis is a debuggin message
+2024-05-30 18:10:02,795 - DEBUG: THis is a debuggin message
+2024-05-30 18:11:00,686 - INFO: THis is a info message
+2024-05-30 18:11:00,686 - DEBUG: THis is a debuggin message
+2024-05-30 18:11:00,686 - ERROR: THis is a error message
+2024-05-30 18:11:00,686 - WARNING: THis is a warning message
+2024-05-30 18:33:33,559 - INFO: THis is a info message
+2024-05-30 18:33:33,559 - ERROR: THis is a error message
+2024-05-30 18:37:58,609 - INFO: THis is a info message
+2024-05-30 18:37:58,610 - ERROR: THis is a error message
+2024-05-30 18:38:17,860 - INFO: THis is a info message
+2024-05-30 18:38:17,860 - ERROR: THis is a error message
