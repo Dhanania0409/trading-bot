@@ -1,7 +1,11 @@
+# encoding: utf-8
 #OHLC Data: Open High Low Close
 #Intra-day trading
 
- 
+class Trader:
+    def __init__(self):
+        lg.info('Trader initialised')
+        
 #LOOP until timeout (eg: 2 hours)
 #POINT 1: INITIAL CHECK
 #check the position: ask the API if the position is open
