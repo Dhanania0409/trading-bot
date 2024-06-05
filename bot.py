@@ -44,8 +44,11 @@ def main():
     clean_open_orders()
     ticker = input('Write the ticker you want to operate with: ')
 
-    trader = Trader
+    #initialise trading bot
+    trader = Trader(ticker)
     #run trading bot:
+    trader.run()
+    
         #IN: String (ticker)
         #OUT: boolean (True=success) 
 
