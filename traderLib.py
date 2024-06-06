@@ -125,4 +125,4 @@ class Trader:
         #wait 15 min
 
 #end
- 
+#activate ticker setup
