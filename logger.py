@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 
 def initialise_logger():
-
+        
     # Creating a folder for the logs
     logs_path = './logs'
     try:
@@ -27,3 +27,5 @@ def initialise_logger():
     lg.getLogger().addFilter(lg.StreamHandler())
 
     print(f"Log files are being created and stored at: {currentlog_path}")
+
+
