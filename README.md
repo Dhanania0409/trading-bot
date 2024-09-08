@@ -1,8 +1,10 @@
-Trading Bot with Sentiment Analysis and Technical Indicators
+# Trading Bot with Sentiment Analysis and Technical Indicators
+
 This repository contains a Python-based trading bot that suggests whether to buy a stock based on a combination of sentiment analysis from news articles and several key technical indicators. The bot integrates data from the Alpaca API and sentiment from the Finnhub News API, along with several calculated metrics like moving averages, RSI, and trading volume spikes to determine if a stock is worth buying.
 
-Features
-Sentiment Analysis: Fetches and analyzes the latest news articles related to a stock.
+## Features:
+
+**Sentiment Analysis**: Fetches and analyzes the latest news articles related to a stock.
 Technical Analysis: Evaluates stock price data using indicators like moving averages, RSI, and trading volume.
 Weightage-Based Decision Making: Each indicator is weighted to contribute towards a final buy/sell decision, making the logic flexible and realistic.
 Alpaca API Integration: Fetches real-time stock data (OHLC) for analysis.
