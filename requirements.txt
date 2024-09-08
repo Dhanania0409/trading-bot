@@ -1,7 +1,7 @@
-yfinance==0.1.62      # For fetching stock market data (if used)
-pandas==1.2.3         # For data manipulation
-requests==2.25.1      # For making HTTP requests
-alpaca-trade-api==1.4.3  # Alpaca API integration (your current trading API)
-matplotlib==3.3.4     # For plotting (if you plan to use graphing)
-nltk==3.5             # For sentiment analysis using VADER
-finnhub-python==2.4.0 # For Finnhub News API integration
+yfinance==0.1.62      
+pandas==1.2.3         
+requests==2.25.1      
+alpaca-trade-api==1.4.3  
+matplotlib==3.3.4     
+nltk==3.5             
+finnhub-python==2.4.0 
