@@ -60,19 +60,19 @@ RSI: RSI = 65 (within favorable range) → 20%
 Volume Spike: True → 10%
 Final score = 50% (Sentiment) + 20% (Moving Average) + 20% (RSI) + 10% (Volume Spike) = 100%, resulting in a BUY signal.
 
-How to Use the Trading Bot
-1. Clone the Repository
-bash
-Copy code
-git clone https://github.com/yourusername/trading-bot.git
-cd trading-bot
-2. Install Dependencies
-Make sure you have Python 3 installed. Then install the required dependencies:
+**How to Use the Trading Bot**  
+1. Clone the Repository  
+bash  
+Copy code  
+git clone https://github.com/yourusername/trading-bot.git  
+cd trading-bot  
+2. Install Dependencies  
+Make sure you have Python 3 installed. Then install the required dependencies:  
 
 bash
 Copy code
-pip install -r requirements.txt
-3. Set up API Keys
+pip install -r requirements.txt  
+**3. Set up API Keys**
 Create a config.json file in the root of the project and add your Alpaca and Finnhub API keys:
 
 json  
@@ -85,8 +85,8 @@ Copy code
   "take_profit_margin": 0.10,  
   "check_interval_minutes": 5,  
   "timeout_hours": 2  
-}  
-4. Run the Bot  
+}    
+**4. Run the Bot**    
 bash  
 Copy code  
 python bot.py  
