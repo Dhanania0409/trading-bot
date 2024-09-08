@@ -5,9 +5,9 @@ This repository contains a Python-based trading bot that suggests whether to buy
 ## Features:
 
 **Sentiment Analysis**: Fetches and analyzes the latest news articles related to a stock.  
-**Technical Analysis:** Evaluates stock price data using indicators like moving averages, RSI, and trading volume.
-**Weightage-Based Decision Making:** Each indicator is weighted to contribute towards a final buy/sell decision, making the logic flexible and realistic.
-**Alpaca API Integration:** Fetches real-time stock data (OHLC) for analysis.
+**Technical Analysis:** Evaluates stock price data using indicators like moving averages, RSI, and trading volume.  
+**Weightage-Based Decision Making:** Each indicator is weighted to contribute towards a final buy/sell decision, making the logic flexible and realistic.  
+**Alpaca API Integration:** Fetches real-time stock data (OHLC) for analysis.  
 **Finnhub News API:** Retrieves recent news articles for sentiment scoring.
 
 ## Key Indicators and Weightages
