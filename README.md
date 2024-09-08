@@ -98,7 +98,7 @@ Create a config.json file in the root of the project and add your Alpaca and Fin
 ```bash
 python bot.py
 ```  
-### Future Enhancements
+## Future Enhancements
 
 - Adding stop-loss and take-profit mechanisms.
 - Expanding support for international stock markets using additional APIs.
