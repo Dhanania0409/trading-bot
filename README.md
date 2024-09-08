@@ -73,3 +73,35 @@ Final score = 50% (Sentiment) + 20% (Moving Average) + 20% (RSI) + 10% (Volume S
 ```bash
 git clone https://github.com/yourusername/trading-bot.git
 cd trading-bot
+```
+
+### 2. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Set up API Keys  
+Create a config.json file in the root of the project and add your Alpaca and Finnhub API keys:
+```json
+{
+  "api_key": "your_alpaca_api_key",
+  "api_secret": "your_alpaca_api_secret",
+  "finnhub_api_key": "your_finnhub_api_key",
+  "stop_loss_margin": 0.05,
+  "take_profit_margin": 0.10,
+  "check_interval_minutes": 5,
+  "timeout_hours": 2
+}
+```
+
+### 4. Run the Bot  
+```bash
+python bot.py
+```  
+### Future Enhancements
+
+- Adding stop-loss and take-profit mechanisms.
+- Expanding support for international stock markets using additional APIs.
+- Improving sentiment analysis by incorporating additional sources (e.g., Twitter, Reddit).
+
+
