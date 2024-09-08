@@ -1,0 +1,10 @@
+2024-09-07 17:45:50,428 - INFO: Logger initialized successfully.
+2024-09-07 17:45:50,428 - INFO: Logger initialized successfully.
+2024-09-07 17:45:50,429 - INFO: Trader initialized with ticker AAPL
+2024-09-07 17:45:50,431 - DEBUG: Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+2024-09-07 17:45:51,689 - DEBUG: https://paper-api.alpaca.markets:443 "GET /v2/account HTTP/1.1" 200 None
+2024-09-07 17:45:51,690 - INFO: Account balance: 100000
+2024-09-07 17:45:53,660 - INFO: Trader initialized with ticker AMZN
+2024-09-07 17:45:53,662 - DEBUG: Starting new HTTPS connection (1): data.alpaca.markets:443
+2024-09-07 17:45:54,939 - DEBUG: https://data.alpaca.markets:443 "GET /v2/stocks/AMZN/bars?timeframe=1Day&adjustment=raw&start=2024-08-31T17%3A45%3A53.661775&end=2024-09-07T17%3A45%3A53.661775&limit=5 HTTP/1.1" 400 202
+2024-09-07 17:45:54,940 - ERROR: Error fetching OHLC data: Invalid format for parameter start: error parsing '2024-08-31T17:45:53.661775' as RFC3339 or 2006-01-02 time: parsing time "2024-08-31T17:45:53.661775": extra text: "T17:45:53.661775"

@@ -1,0 +1,10 @@
+2024-09-08 17:15:13,370 - INFO: Logger initialized successfully.
+2024-09-08 17:15:13,371 - INFO: Logger initialized successfully.
+2024-09-08 17:15:13,372 - INFO: Trader initialized with ticker AAPL
+2024-09-08 17:15:13,374 - DEBUG: Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+2024-09-08 17:15:14,654 - DEBUG: https://paper-api.alpaca.markets:443 "GET /v2/account HTTP/1.1" 200 None
+2024-09-08 17:15:14,656 - INFO: Account balance: 100000
+2024-09-08 17:15:16,844 - INFO: Trader initialized with ticker AMZN
+2024-09-08 17:15:16,846 - DEBUG: Starting new HTTPS connection (1): data.alpaca.markets:443
+2024-09-08 17:15:18,347 - DEBUG: https://data.alpaca.markets:443 "GET /v2/stocks/AMZN/bars?timeframe=1Day&adjustment=raw&start=2024-09-01&end=2024-09-08&limit=5 HTTP/1.1" 403 68
+2024-09-08 17:15:18,348 - ERROR: Error fetching OHLC data: subscription does not permit querying recent SIP data

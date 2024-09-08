@@ -1,56 +1,53 @@
-#encoding: utf-8
-
-#import needed libraries
 from traderLib import *
 from logger import *
-import sys
 
-# initialise logger
+# Initialize the logger
 initialise_logger()
 
-#check trading account(blocked, total amount)
+# Check trading account
 def check_account_ok():
     try:
-        #get account info
+        trader = Trader('AAPL')  # Example ticker symbol
+        account = trader.get_account_info()
+        if float(account.cash) < 100:  # Example: stop if account balance is less than $100
+            lg.error("Insufficient account balance")
+            sys.exit()
     except Exception as e:
         lg.error("Could not get account info")
-        lg.info(str(e))
+        lg.error(str(e))
         sys.exit()
 
-#close current orders
-def clean_open_orders():
-    #open_orders = list of open orders
-    lg.info("List of open orders")
-    lg.info(str(open_orders))
-
-    for i in open_orders:
-        #close order
-        lg.info('Order is closed' % str(i.id))
-
-    lg.info('Closing orders complete')
-
-#define asset
+# Define asset
 def get_ticker():
-    #enter ticker 
+    # Ask for ticker from user
     ticker = input('Write the ticker you want to operate with: ')
-    #OUT: string
     return ticker
 
-#execute trading bot
+# Execute trading bot
 def main():
-    #initialise the logger
+    # Initialize logger
     initialise_logger()
+
+    # Check account balance
     check_account_ok()
-    clean_open_orders()
-    ticker = input('Write the ticker you want to operate with: ')
 
-    #initialise trading bot
+    # Get stock ticker
+    ticker = get_ticker()
+
+    # Initialize trader
     trader = Trader(ticker)
-    #run trading bot:
-    trader.run()
-    
-        #IN: String (ticker)
-        #OUT: boolean (True=success) 
 
-if __name__ == 'main':
+    # Get 100-day historical OHLC data
+    df = trader.get_historical_data()
+
+    # Display OHLC data
+    print(f"OHLC data for {ticker} over the last 100 days:\n{df}\n")
+
+    # Decide if you should buy
+    if trader.should_buy(df):
+        print(f"BUY signal for {ticker}.")
+    else:
+        print(f"NO BUY signal for {ticker}.")
+
+if __name__ == "__main__":
     main()

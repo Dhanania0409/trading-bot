@@ -1,0 +1,6 @@
+2024-09-07 17:35:20,420 - INFO: Logger initialized successfully.
+2024-09-07 17:35:20,420 - INFO: Logger initialized successfully.
+2024-09-07 17:35:20,420 - INFO: Trader initialized with ticker AAPL
+2024-09-07 17:35:20,422 - DEBUG: Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+2024-09-07 17:35:23,264 - DEBUG: https://paper-api.alpaca.markets:443 "GET /v2/account HTTP/1.1" 401 55
+2024-09-07 17:35:23,267 - ERROR: Error fetching account info: request is not authorized

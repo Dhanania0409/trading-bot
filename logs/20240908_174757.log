@@ -1,0 +1,20 @@
+2024-09-08 17:47:57,248 - INFO: Logger initialized successfully.
+2024-09-08 17:47:57,249 - INFO: Logger initialized successfully.
+2024-09-08 17:47:57,250 - INFO: Trader initialized with ticker AAPL
+2024-09-08 17:47:57,251 - DEBUG: Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+2024-09-08 17:47:58,393 - DEBUG: https://paper-api.alpaca.markets:443 "GET /v2/account HTTP/1.1" 200 None
+2024-09-08 17:47:58,394 - INFO: Account balance: 100000
+2024-09-08 17:48:00,614 - INFO: Trader initialized with ticker AMZN
+2024-09-08 17:48:00,617 - DEBUG: Starting new HTTPS connection (1): data.alpaca.markets:443
+2024-09-08 17:48:01,802 - DEBUG: https://data.alpaca.markets:443 "GET /v2/stocks/AMZN/bars?timeframe=1Day&adjustment=raw&start=2024-09-01&end=2024-09-08&limit=5&feed=iex HTTP/1.1" 200 None
+2024-09-08 17:48:01,805 - INFO: Fetched OHLC data for AMZN over the past week.
+2024-09-08 17:48:01,807 - INFO: Average OHLC for AMZN: Open     176.15750
+High     178.09625
+Low      173.58250
+Close    174.74125
+dtype: float64
+2024-09-08 17:48:01,811 - INFO: Fetching news articles for AMZN...
+2024-09-08 17:48:01,813 - DEBUG: Starting new HTTPS connection (1): finnhub.io:443
+2024-09-08 17:48:02,786 - DEBUG: https://finnhub.io:443 "GET /api/v1/company-news?symbol=AMZN&from=2023-09-01&to=2024-09-08&token=crep6r9r01qnd5d02ne0crep6r9r01qnd5d02neg HTTP/1.1" 200 None
+2024-09-08 17:48:02,985 - INFO: Overall sentiment score for AMZN: 2
+2024-09-08 17:48:02,986 - INFO: NO BUY signal for AMZN. Conditions not met. Last Close (171.45) < 98% of Average Close (174.74124999999998) or Sentiment Score (2) < 3

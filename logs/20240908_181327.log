@@ -1,0 +1,24 @@
+2024-09-08 18:13:27,642 - INFO: Logger initialized successfully.
+2024-09-08 18:13:27,643 - INFO: Logger initialized successfully.
+2024-09-08 18:13:27,644 - INFO: Trader initialized with ticker AAPL
+2024-09-08 18:13:27,646 - DEBUG: Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+2024-09-08 18:13:30,208 - DEBUG: https://paper-api.alpaca.markets:443 "GET /v2/account HTTP/1.1" 200 None
+2024-09-08 18:13:30,209 - INFO: Account balance: 100000
+2024-09-08 18:13:32,826 - INFO: Trader initialized with ticker AMZN
+2024-09-08 18:13:32,829 - DEBUG: Starting new HTTPS connection (1): data.alpaca.markets:443
+2024-09-08 18:13:35,479 - DEBUG: https://data.alpaca.markets:443 "GET /v2/stocks/AMZN/bars?timeframe=1Day&adjustment=raw&start=2024-05-31&end=2024-09-08&limit=100&feed=iex HTTP/1.1" 200 None
+2024-09-08 18:13:35,499 - INFO: Fetching news articles for AMZN...
+2024-09-08 18:13:35,501 - DEBUG: Starting new HTTPS connection (1): finnhub.io:443
+2024-09-08 18:13:37,018 - DEBUG: https://finnhub.io:443 "GET /api/v1/company-news?symbol=AMZN&from=2023-09-01&to=2024-09-08&token=crep6r9r01qnd5d02ne0crep6r9r01qnd5d02neg HTTP/1.1" 200 None
+2024-09-08 18:13:37,372 - INFO: Overall sentiment score for AMZN: 2
+2024-09-08 18:13:37,374 - INFO: Last Close: 171.45
+2024-09-08 18:13:37,375 - INFO: Average OHLC for the last 100 days: Open     182.426691
+High     184.324191
+Low      180.039853
+Close    182.207132
+dtype: float64
+2024-09-08 18:13:37,376 - INFO: 100-Day Moving Average: nan
+2024-09-08 18:13:37,376 - INFO: RSI (14-day): 42.6175382989963
+2024-09-08 18:13:37,377 - INFO: Volume Spike: False
+2024-09-08 18:13:37,377 - INFO: Overall Score: 20.0%
+2024-09-08 18:13:37,378 - INFO: NO BUY signal for AMZN. Conditions not met.

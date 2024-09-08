@@ -1,0 +1,9 @@
+2024-09-07 17:39:15,129 - INFO: Logger initialized successfully.
+2024-09-07 17:39:15,130 - INFO: Logger initialized successfully.
+2024-09-07 17:39:15,131 - INFO: Trader initialized with ticker AAPL
+2024-09-07 17:39:15,133 - DEBUG: Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+2024-09-07 17:39:16,515 - DEBUG: https://paper-api.alpaca.markets:443 "GET /v2/account HTTP/1.1" 200 None
+2024-09-07 17:39:16,516 - INFO: Account balance: 100000
+2024-09-07 17:40:28,910 - INFO: Trader initialized with ticker AMZN
+2024-09-07 17:40:29,257 - DEBUG: https://paper-api.alpaca.markets:443 "POST /v2/orders HTTP/1.1" 200 816
+2024-09-07 17:40:29,269 - INFO: Submitted buy order for 1 shares of AMZN

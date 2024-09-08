@@ -1,0 +1,8 @@
+2024-09-07 17:44:37,117 - INFO: Logger initialized successfully.
+2024-09-07 17:44:37,118 - INFO: Logger initialized successfully.
+2024-09-07 17:44:37,120 - INFO: Trader initialized with ticker AAPL
+2024-09-07 17:44:37,122 - DEBUG: Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+2024-09-07 17:44:39,265 - DEBUG: https://paper-api.alpaca.markets:443 "GET /v2/account HTTP/1.1" 200 None
+2024-09-07 17:44:39,269 - INFO: Account balance: 100000
+2024-09-07 17:44:41,638 - INFO: Trader initialized with ticker AMZN
+2024-09-07 17:44:41,639 - ERROR: Error fetching OHLC data: 'REST' object has no attribute 'get_barset'

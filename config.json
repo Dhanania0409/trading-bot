@@ -1,0 +1,8 @@
+{
+  "api_key": "PKEWYK9N25J2UMUUULUQ",
+  "api_secret": "bguc8wtUAYlVoaMQUgbYFGhdqk7pF3uvjxDSJj3o",
+  "stop_loss_margin": 0.05,
+  "take_profit_margin": 0.10,
+  "check_interval_minutes": 5,
+  "timeout_hours": 2
+}

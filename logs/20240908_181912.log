@@ -1,0 +1,9 @@
+2024-09-08 18:19:12,602 - INFO: Logger initialized successfully.
+2024-09-08 18:19:12,604 - INFO: Logger initialized successfully.
+2024-09-08 18:19:12,605 - INFO: Trader initialized with ticker AAPL
+2024-09-08 18:19:12,607 - DEBUG: Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+2024-09-08 18:19:13,745 - DEBUG: https://paper-api.alpaca.markets:443 "GET /v2/account HTTP/1.1" 200 None
+2024-09-08 18:19:13,746 - INFO: Account balance: 100000
+2024-09-08 18:19:21,315 - INFO: Trader initialized with ticker BAJFINANCE
+2024-09-08 18:19:21,317 - DEBUG: Starting new HTTPS connection (1): data.alpaca.markets:443
+2024-09-08 18:19:22,561 - DEBUG: https://data.alpaca.markets:443 "GET /v2/stocks/BAJFINANCE/bars?timeframe=1Day&adjustment=raw&start=2024-05-31&end=2024-09-08&limit=100&feed=iex HTTP/1.1" 200 58

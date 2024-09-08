@@ -1,0 +1,24 @@
+2024-09-08 18:17:35,999 - INFO: Logger initialized successfully.
+2024-09-08 18:17:36,001 - INFO: Logger initialized successfully.
+2024-09-08 18:17:36,002 - INFO: Trader initialized with ticker AAPL
+2024-09-08 18:17:36,003 - DEBUG: Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+2024-09-08 18:17:37,206 - DEBUG: https://paper-api.alpaca.markets:443 "GET /v2/account HTTP/1.1" 200 None
+2024-09-08 18:17:37,207 - INFO: Account balance: 100000
+2024-09-08 18:17:42,413 - INFO: Trader initialized with ticker NVDA
+2024-09-08 18:17:42,415 - DEBUG: Starting new HTTPS connection (1): data.alpaca.markets:443
+2024-09-08 18:17:43,852 - DEBUG: https://data.alpaca.markets:443 "GET /v2/stocks/NVDA/bars?timeframe=1Day&adjustment=raw&start=2024-05-31&end=2024-09-08&limit=100&feed=iex HTTP/1.1" 200 None
+2024-09-08 18:17:43,871 - INFO: Fetching news articles for NVDA...
+2024-09-08 18:17:43,873 - DEBUG: Starting new HTTPS connection (1): finnhub.io:443
+2024-09-08 18:17:44,839 - DEBUG: https://finnhub.io:443 "GET /api/v1/company-news?symbol=NVDA&from=2023-09-01&to=2024-09-08&token=crep6r9r01qnd5d02ne0crep6r9r01qnd5d02neg HTTP/1.1" 200 None
+2024-09-08 18:17:45,349 - INFO: Overall sentiment score for NVDA: 1
+2024-09-08 18:17:45,351 - INFO: Last Close: 102.87
+2024-09-08 18:17:45,352 - INFO: Average OHLC for the last 100 days: Open     213.546029
+High     217.335147
+Low      208.106985
+Close    213.357574
+dtype: float64
+2024-09-08 18:17:45,353 - INFO: 100-Day Moving Average: 118.6125
+2024-09-08 18:17:45,354 - INFO: RSI (14-day): 30.333817126269977
+2024-09-08 18:17:45,354 - INFO: Volume Spike: True
+2024-09-08 18:17:45,354 - INFO: Overall Score: 30.000000000000004%
+2024-09-08 18:17:45,354 - INFO: NO BUY signal for NVDA. Conditions not met.
