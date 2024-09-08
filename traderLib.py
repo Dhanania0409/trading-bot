@@ -26,12 +26,12 @@ class Trader:
 
     def get_historical_data(self, period='100D'):
         """
-        Fetch OHLC data for the specified period (e.g., '100D' for 100 days).
+        Fetch OHLC data for a larger date range to ensure enough data is retrieved.
         """
         try:
-            # Calculate the date range for the last 100 trading days
+            # Calculate a larger date range, for example, 150 calendar days for 100 trading days
             end_date = datetime.now().strftime('%Y-%m-%d')
-            start_date = (datetime.now() - timedelta(days=100)).strftime('%Y-%m-%d')
+            start_date = (datetime.now() - timedelta(days=150)).strftime('%Y-%m-%d')  # Increased from 100 to 150
 
             # Fetch historical OHLC data
             bars = api.get_bars(
@@ -53,18 +53,23 @@ class Trader:
                 'Volume': [bar.v for bar in bars]
             })
 
+            if df.empty:
+                lg.error(f"No OHLC data available for {self.ticker}.")
+                sys.exit()
+
             return df
         except Exception as e:
             lg.error(f'Error fetching OHLC data: {e}')
             sys.exit()
+
 
     def calculate_moving_average(self, df, period=50):
         """
         Calculate the moving average for the given period (e.g., 50 days or 100 days).
         """
         if len(df) < period:
-            lg.info(f"Not enough data to calculate {period}-day moving average.")
-            return float('nan')
+            lg.info(f"Not enough data to calculate {period}-day moving average. Using available {len(df)} days.")
+            return df['Close'].rolling(window=len(df)).mean().iloc[-1]
         return df['Close'].rolling(window=period).mean().iloc[-1]
 
     def calculate_rsi(self, df, period=14):
@@ -78,14 +83,23 @@ class Trader:
         avg_gain = gain.rolling(window=period).mean()
         avg_loss = loss.rolling(window=period).mean()
 
+        if avg_loss.iloc[-1] == 0:
+            return 100  # If no losses, RSI is 100 (overbought)
+        if avg_gain.iloc[-1] == 0:
+            return 0    # If no gains, RSI is 0 (oversold)
+
         rs = avg_gain / avg_loss
         rsi = 100 - (100 / (1 + rs))
-        return rsi.iloc[-1]  # Latest RSI value
+        return rsi.iloc[-1]
 
     def check_volume_spike(self, df):
         """
         Check if the current volume is at least 15% higher than the 30-day average volume.
         """
+        if len(df) < 30:
+            lg.info("Not enough data to calculate 30-day volume average.")
+            return False
+        
         avg_volume = df['Volume'].rolling(window=30).mean().iloc[-1]
         latest_volume = df['Volume'].iloc[-1]
         return latest_volume >= 1.15 * avg_volume
@@ -96,14 +110,18 @@ class Trader:
         """
         lg.info(f'Fetching news articles for {self.ticker}...')
         news_articles = fetch_news_articles(self.ticker)
-        
+
         if news_articles:
             sentiment_score = 0
             print("\nLatest 5 News Articles and Their Sentiment Scores:")
             for article in news_articles:
-                article_sentiment = analyze_sentiment(article)
-                sentiment_score += article_sentiment
-                print(f"Article: {article}\nSentiment Score: {article_sentiment}\n")
+                try:
+                    article_sentiment = analyze_sentiment(article)
+                    sentiment_score += article_sentiment
+                    print(f"Article: {article}\nSentiment Score: {article_sentiment}\n")
+                except Exception as e:
+                    lg.error(f"Error analyzing sentiment for article: {article}. Error: {e}")
+                    continue
 
             lg.info(f"Overall sentiment score for {self.ticker}: {sentiment_score}")
             return sentiment_score
@@ -121,12 +139,12 @@ class Trader:
         """
         last_close = df['Close'].iloc[-1]
         sentiment_score = self.fetch_and_analyze_news()
-        
+
         # Calculate short, mid, and long-term moving averages
         short_term_ma = self.calculate_moving_average(df, period=20)
         mid_term_ma = self.calculate_moving_average(df, period=50)
         long_term_ma = self.calculate_moving_average(df, period=100)
-        
+
         rsi = self.calculate_rsi(df)
         volume_spike = self.check_volume_spike(df)
 

@@ -1,0 +1,22 @@
+2024-09-08 21:45:13,493 - INFO: Logger initialized successfully.
+2024-09-08 21:45:13,494 - INFO: Logger initialized successfully.
+2024-09-08 21:45:13,494 - INFO: Trader initialized with ticker AAPL
+2024-09-08 21:45:13,497 - DEBUG: Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+2024-09-08 21:45:14,688 - DEBUG: https://paper-api.alpaca.markets:443 "GET /v2/account HTTP/1.1" 200 None
+2024-09-08 21:45:14,689 - INFO: Account balance: 100000
+2024-09-08 21:45:24,456 - INFO: Trader initialized with ticker AMZN
+2024-09-08 21:45:24,464 - DEBUG: Starting new HTTPS connection (1): data.alpaca.markets:443
+2024-09-08 21:45:25,908 - DEBUG: https://data.alpaca.markets:443 "GET /v2/stocks/AMZN/bars?timeframe=1Day&adjustment=raw&start=2024-05-31&end=2024-09-08&limit=100&feed=iex HTTP/1.1" 200 None
+2024-09-08 21:45:25,960 - INFO: Fetching news articles for AMZN...
+2024-09-08 21:45:25,970 - DEBUG: Starting new HTTPS connection (1): finnhub.io:443
+2024-09-08 21:45:27,181 - DEBUG: https://finnhub.io:443 "GET /api/v1/company-news?symbol=AMZN&from=2023-09-01&to=2024-09-08&token=crep6r9r01qnd5d02ne0crep6r9r01qnd5d02neg HTTP/1.1" 200 None
+2024-09-08 21:45:27,248 - INFO: Overall sentiment score for AMZN: 3
+2024-09-08 21:45:27,252 - INFO: Not enough data to calculate 100-day moving average.
+2024-09-08 21:45:27,261 - INFO: Last Close: 171.45
+2024-09-08 21:45:27,264 - INFO: Short-Term (20-day) Moving Average: 174.4085
+2024-09-08 21:45:27,266 - INFO: Mid-Term (50-day) Moving Average: 181.38490000000002
+2024-09-08 21:45:27,268 - INFO: Long-Term (100-day) Moving Average: nan
+2024-09-08 21:45:27,270 - INFO: RSI (14-day): 42.6175382989963
+2024-09-08 21:45:27,272 - INFO: Volume Spike: True
+2024-09-08 21:45:27,274 - INFO: Overall Score: 70.0%
+2024-09-08 21:45:27,276 - INFO: BUY signal for AMZN. All conditions met.

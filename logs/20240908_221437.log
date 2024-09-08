@@ -1,0 +1,10 @@
+2024-09-08 22:14:37,388 - INFO: Logger initialized successfully.
+2024-09-08 22:14:37,389 - INFO: Logger initialized successfully.
+2024-09-08 22:14:37,391 - INFO: Trader initialized with ticker AAPL
+2024-09-08 22:14:37,393 - DEBUG: Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+2024-09-08 22:14:38,732 - DEBUG: https://paper-api.alpaca.markets:443 "GET /v2/account HTTP/1.1" 200 None
+2024-09-08 22:14:38,736 - INFO: Account balance: 100000
+2024-09-08 22:14:44,157 - INFO: Trader initialized with ticker AMZN\
+2024-09-08 22:14:44,165 - DEBUG: Starting new HTTPS connection (1): data.alpaca.markets:443
+2024-09-08 22:14:46,000 - DEBUG: https://data.alpaca.markets:443 "GET /v2/stocks/AMZN%5C/bars?timeframe=1Day&adjustment=raw&start=2024-05-31&end=2024-09-08&limit=100&feed=iex HTTP/1.1" 400 37
+2024-09-08 22:14:46,003 - ERROR: Error fetching OHLC data: invalid symbol: AMZN\
