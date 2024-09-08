@@ -14,16 +14,16 @@ This repository contains a Python-based trading bot that suggests whether to buy
 
 ### Sentiment Score (50%)
 
-**Definition:** Sentiment analysis evaluates the tone of news articles about a stock. A sentiment score is calculated based on positive, neutral, and negative sentiments.
-**How it works:**
+**Definition:** Sentiment analysis evaluates the tone of news articles about a stock. A sentiment score is calculated based on positive, neutral, and negative sentiments.  
+**How it works:**  
 The bot fetches the latest 5 news articles about the stock.
 Each article is given a score (+1 for positive, 0 for neutral, and -1 for negative).
 The final sentiment score is the total sum of these articles.
-Weightage: If the sentiment score is 3/5 or higher, it contributes 50% to the overall decision.
-Moving Averages (30%)
+Weightage: If the sentiment score is 3/5 or higher, it contributes 50% to the overall decision.  
+### Moving Averages (30%)
 
-Definition: Moving averages smooth out price data to help identify trends over different time periods.
-How it works: The bot calculates:
+**Definition:** Moving averages smooth out price data to help identify trends over different time periods.  
+**How it works:**   The bot calculates:
 Short-Term (20-day) Moving Average: Focuses on recent price trends.
 Mid-Term (50-day) Moving Average: Provides insight into medium-term market direction.
 Long-Term (100-day) Moving Average: Tracks long-term momentum.
