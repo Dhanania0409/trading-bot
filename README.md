@@ -4,16 +4,18 @@ This repository contains a Python-based trading bot that suggests whether to buy
 
 ## Features:
 
-**Sentiment Analysis**: Fetches and analyzes the latest news articles related to a stock.
-Technical Analysis: Evaluates stock price data using indicators like moving averages, RSI, and trading volume.
-Weightage-Based Decision Making: Each indicator is weighted to contribute towards a final buy/sell decision, making the logic flexible and realistic.
-Alpaca API Integration: Fetches real-time stock data (OHLC) for analysis.
-Finnhub News API: Retrieves recent news articles for sentiment scoring.
-Key Indicators and Weightages
-Sentiment Score (50%)
+**Sentiment Analysis**: Fetches and analyzes the latest news articles related to a stock.  
+**Technical Analysis:** Evaluates stock price data using indicators like moving averages, RSI, and trading volume.
+**Weightage-Based Decision Making:** Each indicator is weighted to contribute towards a final buy/sell decision, making the logic flexible and realistic.
+**Alpaca API Integration:** Fetches real-time stock data (OHLC) for analysis.
+**Finnhub News API:** Retrieves recent news articles for sentiment scoring.
 
-Definition: Sentiment analysis evaluates the tone of news articles about a stock. A sentiment score is calculated based on positive, neutral, and negative sentiments.
-How it works:
+## Key Indicators and Weightages
+
+### Sentiment Score (50%)
+
+**Definition:** Sentiment analysis evaluates the tone of news articles about a stock. A sentiment score is calculated based on positive, neutral, and negative sentiments.
+**How it works:**
 The bot fetches the latest 5 news articles about the stock.
 Each article is given a score (+1 for positive, 0 for neutral, and -1 for negative).
 The final sentiment score is the total sum of these articles.
