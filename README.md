@@ -30,27 +30,28 @@ Long-Term (100-day) Moving Average: Tracks long-term momentum.
 Weightage:
 Last close price above the 20-day MA adds 10%.
 Last close price above the 50-day MA adds 20%.
-Last close price above the 100-day MA adds another 20%.
-RSI (Relative Strength Index) (20%)
+Last close price above the 100-day MA adds another 20%.  
 
-Definition: RSI is a momentum indicator that measures the magnitude of recent price changes to evaluate whether a stock is overbought or oversold.
-How it works:
+### RSI (Relative Strength Index) (20%)  
+
+**Definition:** RSI is a momentum indicator that measures the magnitude of recent price changes to evaluate whether a stock is overbought or oversold.
+**How it works:**  
 An RSI value between 50-75 is considered favorable and contributes to a buy decision.
 If RSI is less than 50, the stock is considered oversold, which can also be a strong buy signal.
 Weightage:
 RSI between 50-75 adds 20%.
-RSI below 50 adds 10%.
-Volume Spike (10%)
+RSI below 50 adds 10%.  
+### Volume Spike (10%)  
 
-Definition: A volume spike indicates an unusual increase in the number of shares traded, signaling heightened market interest.
-How it works:
+**Definition:** A volume spike indicates an unusual increase in the number of shares traded, signaling heightened market interest.
+**How it works:**  
 The bot compares the current trading volume with the 30-day average.
 If the current volume is 15% higher than the 30-day average, it is considered a volume spike.
 Weightage: A 15% higher volume spike adds 10% to the overall decision.
 Buy Signal Criteria
-A stock receives a BUY signal when the combined weightage of all indicators is greater than or equal to 60%. Each indicator contributes a specific percentage to the overall score, and the final score determines the buy recommendation.
+A stock receives a BUY signal when the combined weightage of all indicators is greater than or equal to 60%. Each indicator contributes a specific percentage to the overall score, and the final score determines the buy recommendation.  
 
-Example of a Buy Signal:
+**Example of a Buy Signal:**  
 Sentiment Score: 4/5 → 50% (positive sentiment)
 Price vs. Moving Averages:
 Last close price > 50-day moving average → 20%
