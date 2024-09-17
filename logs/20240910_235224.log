@@ -1,0 +1,20 @@
+2024-09-10 23:52:24,732 - INFO: Logger initialized successfully.
+2024-09-10 23:52:24,733 - INFO: Logger initialized successfully.
+2024-09-10 23:52:24,734 - INFO: Trader initialized with ticker AAPL
+2024-09-10 23:52:24,736 - DEBUG: Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+2024-09-10 23:52:25,911 - DEBUG: https://paper-api.alpaca.markets:443 "GET /v2/account HTTP/1.1" 200 None
+2024-09-10 23:52:25,912 - INFO: Account balance: 99825.38
+2024-09-10 23:52:56,776 - INFO: Trader initialized with ticker NVDA
+2024-09-10 23:52:56,778 - DEBUG: Starting new HTTPS connection (1): data.alpaca.markets:443
+2024-09-10 23:52:57,948 - DEBUG: https://data.alpaca.markets:443 "GET /v2/stocks/NVDA/bars?timeframe=1Day&adjustment=raw&start=2023-03-20&end=2024-09-10&limit=100&feed=iex HTTP/1.1" 200 None
+2024-09-10 23:52:57,961 - INFO: Fetching news articles for NVDA...
+2024-09-10 23:52:57,963 - DEBUG: Starting new HTTPS connection (1): finnhub.io:443
+2024-09-10 23:52:59,453 - DEBUG: https://finnhub.io:443 "GET /api/v1/company-news?symbol=NVDA&from=2023-09-01&to=2024-09-08&token=crep6r9r01qnd5d02ne0crep6r9r01qnd5d02neg HTTP/1.1" 200 None
+2024-09-10 23:52:59,851 - INFO: Overall sentiment score for NVDA: 1
+2024-09-10 23:52:59,852 - INFO: No Crossover Detected
+2024-09-10 23:52:59,853 - INFO: No MACD Crossover Detected
+2024-09-10 23:52:59,854 - INFO: Bollinger Bands Breakout (Below Lower Band) - Potential Sell Signal
+2024-09-10 23:52:59,858 - INFO: ADX Value: 34.145663606179156 - Trend Strength
+2024-09-10 23:52:59,859 - INFO: Volume Spike: False
+2024-09-10 23:52:59,859 - INFO: Overall Score: 10.0%
+2024-09-10 23:52:59,860 - INFO: NO BUY signal for NVDA. Conditions not met.

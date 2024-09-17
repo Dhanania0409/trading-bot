@@ -1,0 +1,9 @@
+2024-09-11 11:25:15,573 - INFO: Logger initialized successfully.
+2024-09-11 11:25:15,574 - INFO: Logger initialized successfully.
+2024-09-11 11:25:15,575 - INFO: Trader initialized with ticker AAPL
+2024-09-11 11:25:15,577 - DEBUG: Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+2024-09-11 11:25:18,425 - DEBUG: https://paper-api.alpaca.markets:443 "GET /v2/account HTTP/1.1" 200 None
+2024-09-11 11:25:18,426 - INFO: Account balance: 99825.38
+2024-09-11 11:25:27,035 - INFO: Trader initialized with ticker NVDA
+2024-09-11 11:25:27,042 - DEBUG: Starting new HTTPS connection (1): data.alpaca.markets:443
+2024-09-11 11:25:29,588 - DEBUG: https://data.alpaca.markets:443 "GET /v2/stocks/NVDA/bars?timeframe=1Day&adjustment=raw&start=2024-04-14&end=2024-09-11&limit=100&feed=iex HTTP/1.1" 200 None

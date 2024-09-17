@@ -1,0 +1,5 @@
+2024-09-11 00:00:56,654 - INFO: Logger initialized successfully.
+2024-09-11 00:00:56,655 - INFO: Logger initialized successfully.
+2024-09-11 00:00:56,657 - INFO: Trader initialized with ticker AAPL
+2024-09-11 00:00:56,657 - ERROR: Could not get account info
+2024-09-11 00:00:56,658 - ERROR: 'Trader' object has no attribute 'get_account_info'

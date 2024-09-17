@@ -1,0 +1,20 @@
+2024-09-10 23:50:36,293 - INFO: Logger initialized successfully.
+2024-09-10 23:50:36,293 - INFO: Logger initialized successfully.
+2024-09-10 23:50:36,294 - INFO: Trader initialized with ticker AAPL
+2024-09-10 23:50:36,296 - DEBUG: Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+2024-09-10 23:50:37,373 - DEBUG: https://paper-api.alpaca.markets:443 "GET /v2/account HTTP/1.1" 200 None
+2024-09-10 23:50:37,374 - INFO: Account balance: 99825.38
+2024-09-10 23:50:38,023 - INFO: Trader initialized with ticker BTC
+2024-09-10 23:50:38,024 - DEBUG: Starting new HTTPS connection (1): data.alpaca.markets:443
+2024-09-10 23:50:39,110 - DEBUG: https://data.alpaca.markets:443 "GET /v2/stocks/BTC/bars?timeframe=1Day&adjustment=raw&start=2023-03-20&end=2024-09-10&limit=100&feed=iex HTTP/1.1" 200 None
+2024-09-10 23:50:39,124 - INFO: Fetching news articles for BTC...
+2024-09-10 23:50:39,126 - DEBUG: Starting new HTTPS connection (1): finnhub.io:443
+2024-09-10 23:50:39,888 - DEBUG: https://finnhub.io:443 "GET /api/v1/company-news?symbol=BTC&from=2023-09-01&to=2024-09-08&token=crep6r9r01qnd5d02ne0crep6r9r01qnd5d02neg HTTP/1.1" 200 None
+2024-09-10 23:50:40,148 - INFO: Overall sentiment score for BTC: 1
+2024-09-10 23:50:40,149 - INFO: No Crossover Detected
+2024-09-10 23:50:40,149 - INFO: No MACD Crossover Detected
+2024-09-10 23:50:40,154 - INFO: ADX Value: 23.416916881884088 - Trend Strength
+2024-09-10 23:50:40,154 - INFO: Not enough data to calculate 30-day volume average.
+2024-09-10 23:50:40,154 - INFO: Volume Spike: False
+2024-09-10 23:50:40,155 - INFO: Overall Score: 0.0%
+2024-09-10 23:50:40,155 - INFO: NO BUY signal for BTC. Conditions not met.

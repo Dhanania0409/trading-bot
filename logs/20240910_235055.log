@@ -1,0 +1,19 @@
+2024-09-10 23:50:55,601 - INFO: Logger initialized successfully.
+2024-09-10 23:50:55,602 - INFO: Logger initialized successfully.
+2024-09-10 23:50:55,604 - INFO: Trader initialized with ticker AAPL
+2024-09-10 23:50:55,606 - DEBUG: Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+2024-09-10 23:50:56,623 - DEBUG: https://paper-api.alpaca.markets:443 "GET /v2/account HTTP/1.1" 200 None
+2024-09-10 23:50:56,624 - INFO: Account balance: 99825.38
+2024-09-10 23:51:00,028 - INFO: Trader initialized with ticker ETH
+2024-09-10 23:51:00,030 - DEBUG: Starting new HTTPS connection (1): data.alpaca.markets:443
+2024-09-10 23:51:01,102 - DEBUG: https://data.alpaca.markets:443 "GET /v2/stocks/ETH/bars?timeframe=1Day&adjustment=raw&start=2023-03-20&end=2024-09-10&limit=100&feed=iex HTTP/1.1" 200 None
+2024-09-10 23:51:01,117 - INFO: Fetching news articles for ETH...
+2024-09-10 23:51:01,119 - DEBUG: Starting new HTTPS connection (1): finnhub.io:443
+2024-09-10 23:51:01,926 - DEBUG: https://finnhub.io:443 "GET /api/v1/company-news?symbol=ETH&from=2023-09-01&to=2024-09-08&token=crep6r9r01qnd5d02ne0crep6r9r01qnd5d02neg HTTP/1.1" 200 None
+2024-09-10 23:51:02,011 - INFO: Overall sentiment score for ETH: -2
+2024-09-10 23:51:02,013 - INFO: No Crossover Detected
+2024-09-10 23:51:02,015 - INFO: No MACD Crossover Detected
+2024-09-10 23:51:02,020 - INFO: ADX Value: 36.12127853519239 - Trend Strength
+2024-09-10 23:51:02,021 - INFO: Volume Spike: False
+2024-09-10 23:51:02,022 - INFO: Overall Score: 10.0%
+2024-09-10 23:51:02,022 - INFO: NO BUY signal for ETH. Conditions not met.

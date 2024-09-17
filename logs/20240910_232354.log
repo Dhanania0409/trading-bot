@@ -1,0 +1,9 @@
+2024-09-10 23:23:54,198 - INFO: Logger initialized successfully.
+2024-09-10 23:23:54,200 - INFO: Logger initialized successfully.
+2024-09-10 23:23:54,200 - INFO: Trader initialized with ticker AAPL
+2024-09-10 23:23:54,202 - DEBUG: Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+2024-09-10 23:23:56,285 - DEBUG: https://paper-api.alpaca.markets:443 "GET /v2/account HTTP/1.1" 200 None
+2024-09-10 23:23:56,286 - INFO: Account balance: 99825.38
+2024-09-10 23:24:01,897 - INFO: Trader initialized with ticker AMAN
+2024-09-10 23:24:01,899 - DEBUG: Starting new HTTPS connection (1): data.alpaca.markets:443
+2024-09-10 23:24:03,674 - DEBUG: https://data.alpaca.markets:443 "GET /v2/stocks/AMAN/bars?timeframe=1Day&adjustment=raw&start=2024-06-02&end=2024-09-10&limit=100&feed=iex HTTP/1.1" 200 52

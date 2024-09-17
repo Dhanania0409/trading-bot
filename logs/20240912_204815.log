@@ -1,0 +1,5 @@
+2024-09-12 20:48:15,076 - INFO: Logger initialized successfully.
+2024-09-12 20:48:15,078 - INFO: Logger initialized successfully.
+2024-09-12 20:48:17,568 - INFO: Trader initialized with ticker NVDA
+2024-09-12 20:48:17,569 - ERROR: Could not get account info
+2024-09-12 20:48:17,569 - ERROR: 'Trader' object has no attribute 'get_account_info'

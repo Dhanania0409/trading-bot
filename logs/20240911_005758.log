@@ -1,0 +1,21 @@
+2024-09-11 00:57:58,638 - INFO: Logger initialized successfully.
+2024-09-11 00:57:58,640 - INFO: Logger initialized successfully.
+2024-09-11 00:57:58,641 - INFO: Trader initialized with ticker AAPL
+2024-09-11 00:57:58,643 - DEBUG: Starting new HTTPS connection (1): paper-api.alpaca.markets:443
+2024-09-11 00:57:59,769 - DEBUG: https://paper-api.alpaca.markets:443 "GET /v2/account HTTP/1.1" 200 None
+2024-09-11 00:57:59,770 - INFO: Account balance: 99825.38
+2024-09-11 00:58:01,684 - INFO: Trader initialized with ticker AAPL
+2024-09-11 00:58:01,686 - DEBUG: Starting new HTTPS connection (1): data.alpaca.markets:443
+2024-09-11 00:58:02,902 - DEBUG: https://data.alpaca.markets:443 "GET /v2/stocks/AAPL/bars?timeframe=1Day&adjustment=raw&start=2024-04-14&end=2024-09-11&limit=100&feed=iex HTTP/1.1" 200 None
+2024-09-11 00:58:02,914 - INFO: Fetching news articles for AAPL...
+2024-09-11 00:58:02,917 - DEBUG: Starting new HTTPS connection (1): finnhub.io:443
+2024-09-11 00:58:03,779 - DEBUG: https://finnhub.io:443 "GET /api/v1/company-news?symbol=AAPL&from=2023-09-01&to=2024-09-08&token=crep6r9r01qnd5d02ne0crep6r9r01qnd5d02neg HTTP/1.1" 200 None
+2024-09-11 00:58:04,125 - INFO: Overall sentiment score for AAPL: 0
+2024-09-11 00:58:04,128 - INFO: Last Close: 222.29
+2024-09-11 00:58:04,128 - INFO: Short-Term (20-day) Moving Average: 223.85425
+2024-09-11 00:58:04,129 - INFO: Mid-Term (50-day) Moving Average: 222.4159
+2024-09-11 00:58:04,129 - INFO: Long-Term (100-day) Moving Average: 205.26995
+2024-09-11 00:58:04,129 - INFO: RSI (14-day): 44.873985476292184
+2024-09-11 00:58:04,130 - INFO: Volume Spike: False
+2024-09-11 00:58:04,130 - INFO: Overall Score: 30.000000000000004%
+2024-09-11 00:58:04,130 - INFO: NO BUY signal for AAPL. Conditions not met.

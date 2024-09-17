@@ -1,15 +1,12 @@
-# Import necessary libraries
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import requests
+import logging as lg
+from datetime import datetime, timedelta
 
-# Download the VADER lexicon if it hasn't been downloaded already
+lg.basicConfig(level=lg.INFO, format='%(asctime)s - %(levelname)s: %(message)s')
 nltk.download('vader_lexicon')
-
-# Initialize the VADER sentiment analyzer
 sid = SentimentIntensityAnalyzer()
-
-# Add custom words to VADER's lexicon to improve analysis of financial news
 custom_lexicon = {
     'breaking all records': 3.0,
     'on the rise': 2.0,
@@ -17,60 +14,57 @@ custom_lexicon = {
     'significant losses': -2.5,
     'disappointing': -2.0
 }
-# Update VADER with the custom lexicon
 sid.lexicon.update(custom_lexicon)
 
-# Finnhub API key (replace 'your_finnhub_api_key' with your actual API key)
+# Finnhub API key
 API_KEY = 'crep6r9r01qnd5d02ne0crep6r9r01qnd5d02neg'
-
-def fetch_news_articles(ticker):
-    """
-    Fetches the last 5 news articles about the given company ticker from Finnhub API.
-    Returns a list of news headlines.
-    """
-    url = f'https://finnhub.io/api/v1/company-news?symbol={ticker}&from=2023-09-01&to=2024-09-08&token={API_KEY}'
-    
+previous_sentiment_scores = []
+def fetch_news_articles(ticker, start_date=None, end_date=None):
+    base_url = 'https://finnhub.io/api/v1/company-news'
+    if not start_date:
+        start_date = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
+    if not end_date:
+        end_date = datetime.now().strftime('%Y-%m-%d')
+    params = {
+        'symbol': ticker,
+        'from': start_date,
+        'to': end_date,
+        'token': API_KEY
+    }
     try:
-        response = requests.get(url)
+        response = requests.get(base_url, params=params)
         response.raise_for_status()
-        news_data = response.json()
-        
-        # Get the last 5 news articles (or less if fewer are available)
-        latest_news = [article['headline'] for article in news_data[:5]]
-        return latest_news
-    except requests.exceptions.HTTPError as http_err:
-        print(f"HTTP error occurred: {http_err}")
-        return []
-    except Exception as err:
-        print(f"Other error occurred: {err}")
+        news_articles = response.json()
+
+        if not news_articles:
+            lg.info(f"No news found for {ticker} from {start_date} to {end_date}.")
+            return []
+
+        lg.info(f"Fetched {len(news_articles)} news articles for {ticker}.")
+        return [article['headline'] for article in news_articles]
+
+    except requests.exceptions.RequestException as e:
+        lg.error(f"Error fetching news for {ticker}: {e}")
         return []
 
 def analyze_sentiment(text):
-    """
-    Analyzes the sentiment of the given text and returns a score:
-    +1 for positive sentiment, -1 for negative sentiment, and 0 for neutral.
-    Also prints detailed sentiment scores for each article.
-    """
-    # Get the sentiment scores for the text
     sentiment_scores = sid.polarity_scores(text)
-    
-    # Print detailed sentiment scores for debugging
-    print(f"Sentiment scores for '{text}': {sentiment_scores}")
-
-    # Determine the sentiment based on the compound score
+    lg.info(f"Sentiment scores for '{text}': {sentiment_scores}")
+    previous_sentiment_scores.append(sentiment_scores['compound'])
+    if len(previous_sentiment_scores) > 10: 
+        previous_sentiment_scores.pop(0)
+    avg_previous_sentiment = sum(previous_sentiment_scores) / len(previous_sentiment_scores)
     if sentiment_scores['compound'] >= 0.05:
-        return 1  # Positive sentiment
+        sentiment_result = 1  
     elif sentiment_scores['compound'] <= -0.05:
-        return -1  # Negative sentiment
+        sentiment_result = -1 
     else:
-        return 0  # Neutral sentiment
+        sentiment_result = 0 
+    lg.info(f"Current sentiment: {sentiment_result}, Average of previous sentiment scores: {avg_previous_sentiment:.2f}")
 
-# Function to analyze a list of news articles and return the overall sentiment score
+    return sentiment_result
+
 def analyze_news_sentiment(news_articles):
-    """
-    Analyzes the sentiment of a list of news articles and returns the overall sentiment score.
-    For each article, +1 is added for positive sentiment, -1 for negative, and 0 for neutral.
-    """
     overall_score = 0
     for article in news_articles:
         sentiment_score = analyze_sentiment(article)
