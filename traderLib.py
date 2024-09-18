@@ -24,7 +24,7 @@ config = load_config()
 
 api = tradeapi.REST(config['api_key'], config['api_secret'], base_url='https://paper-api.alpaca.markets')
 
-ALPHA_VANTAGE_API_KEY = '8VSXORD2CC9076Q6'
+ALPHA_VANTAGE_API_KEY = '1G6Q748FYDBIN7FO'
 FRED_API_KEY = '8c910ecaa15798c8f9c8b9a10bfebc96'
 
 class Trader:
