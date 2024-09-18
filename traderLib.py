@@ -212,6 +212,7 @@ class Trader:
         minus_di = 100 * (minus_dm.rolling(window=period).mean() / atr)
         dx = (abs(plus_di - minus_di) / abs(plus_di + minus_di)) * 100
         adx = dx.rolling(window=period).mean()
+        return adx.iloc[-1] if not adx.empty else None
 
     def calculate_obv(self):
         obv_data = self.fetch_alpha_vantage_data('OBV', self.ticker,interval='daily')
@@ -251,50 +252,50 @@ class Trader:
         latest_volume = df['Volume'].iloc[-1]
         return latest_volume >= 1.15 * avg_volume
 
-    def get_macroeconomic_factors(self):
-        macroeconomic_indicators = [
-            'CPIAUCSL', 'UNRATE', 'GDP', 'FEDFUNDS', 'M2', 'PPIACO', 'DEXUSEU', 'DGS10', 'PAYEMS'
-        ]
+    # def get_macroeconomic_factors(self):
+    #     macroeconomic_indicators = [
+    #         'CPIAUCSL', 'UNRATE', 'GDP', 'FEDFUNDS', 'M2', 'PPIACO', 'DEXUSEU', 'DGS10', 'PAYEMS'
+    #     ]
 
-        base_url = 'https://api.stlouisfed.org/fred/series/observations'
-        headers = {'Content-Type': 'application/json'}
+    #     base_url = 'https://api.stlouisfed.org/fred/series/observations'
+    #     headers = {'Content-Type': 'application/json'}
 
-        macro_factors = []
-        missing_factors = []
-        for indicator in macroeconomic_indicators:
-            params = {
-                'series_id': indicator,
-                'api_key': FRED_API_KEY,
-                'file_type': 'json'
-            }
+    #     macro_factors = []
+    #     missing_factors = []
+    #     for indicator in macroeconomic_indicators:
+    #         params = {
+    #             'series_id': indicator,
+    #             'api_key': FRED_API_KEY,
+    #             'file_type': 'json'
+    #         }
 
-            try:
-                lg.info(f"Fetching data for {indicator}...")
-                response = requests.get(base_url, params=params, headers=headers)
-                response.raise_for_status()
-                data = response.json()
+    #         try:
+    #             lg.info(f"Fetching data for {indicator}...")
+    #             response = requests.get(base_url, params=params, headers=headers)
+    #             response.raise_for_status()
+    #             data = response.json()
 
-                if data.get('observations'):
-                    latest_value = float(data['observations'][-1]['value'])
-                    macro_factors.append(latest_value)
-                    lg.info(f"Fetched {indicator}: {latest_value}")
-                else:
-                    lg.warning(f"No data found for {indicator}. Adding to missing_factors.")
-                    missing_factors.append(indicator)
+    #             if data.get('observations'):
+    #                 latest_value = float(data['observations'][-1]['value'])
+    #                 macro_factors.append(latest_value)
+    #                 lg.info(f"Fetched {indicator}: {latest_value}")
+    #             else:
+    #                 lg.warning(f"No data found for {indicator}. Adding to missing_factors.")
+    #                 missing_factors.append(indicator)
 
-            except requests.exceptions.RequestException as e:
-                lg.error(f"Error fetching macroeconomic data for {indicator}: {e}")
-                missing_factors.append(indicator)
+    #         except requests.exceptions.RequestException as e:
+    #             lg.error(f"Error fetching macroeconomic data for {indicator}: {e}")
+    #             missing_factors.append(indicator)
 
-        if macro_factors:
-            average_macro_factor = sum(macro_factors) / len(macro_factors)
-            lg.info(f"Average Macroeconomic Factor: {average_macro_factor}")
-            if missing_factors:
-                lg.warning(f"Missing data for the following indicators: {missing_factors}")
-            return average_macro_factor
-        else:
-            lg.error("All macroeconomic data requests failed. Returning -1.")
-            return -1 
+    #     if macro_factors:
+    #         average_macro_factor = sum(macro_factors) / len(macro_factors)
+    #         lg.info(f"Average Macroeconomic Factor: {average_macro_factor}")
+    #         if missing_factors:
+    #             lg.warning(f"Missing data for the following indicators: {missing_factors}")
+    #         return average_macro_factor
+    #     else:
+    #         lg.error("All macroeconomic data requests failed. Returning -1.")
+    #         return -1 
 
     def should_buy(self, df):
         if df is None or df.empty:
@@ -363,27 +364,26 @@ class Trader:
                 lg.error("Stochastic Oscillator calculation failed.")
             else:
                 lg.info(f"Stochastic Oscillator: {stochastic_oscillator.iloc[-1]}")
-            lg.info("Calculating Macroeconomic Factor Average...")
-            macro_factor = self.get_macroeconomic_factors()
-            if macro_factor is None:
-                lg.error("Macroeconomic factor calculation failed.")
-                return False
-            lg.info(f"Macroeconomic Factor Average: {macro_factor}")
-            sentiment_weight = 0.1 if sentiment_score >= 3 else 0.0
+            # lg.info("Calculating Macroeconomic Factor Average...")
+            # macro_factor = self.get_macroeconomic_factors()
+            # if macro_factor is None:
+            #     lg.error("Macroeconomic factor calculation failed.")
+            #     return False
+            # lg.info(f"Macroeconomic Factor Average: {macro_factor}")
+            sentiment_weight = 0.15 if sentiment_score >= 2 else 0.0
             ma_weight = 0.1 if "Golden Cross" in ma_crossover else 0.0
             macd_weight = 0.1 if "Bullish Crossover" in macd_signal else 0.0
             adx_weight = 0.1 if adx_value >= 25 else 0.0
             volume_weight = 0.05 if volume_spike else 0.0
-            fibonacci_weight = 0.1 if last_close > fibonacci_levels[-1] else 0.0
+            fibonacci_weight = 0.1 if last_close > fibonacci_levels['38.2%'] else 0.0
             obv_weight = 0.05 if obv_values.iloc[-1] > obv_values.mean() else 0.0
             stochastic_weight = 0.1 if stochastic_oscillator.iloc[-1] > 20 else 0.0
-            macro_weight = 0.2 if macro_factor >= 50 else 0.0
+            # macro_weight = 0.25 if macro_factor >= 50 else 0.0
 
             lg.info(f"sentiment_weight: {sentiment_weight}, ma_weight: {ma_weight}, macd_weight: {macd_weight}, adx_weight: {adx_weight}, volume_weight: {volume_weight}, fibonacci_weight: {fibonacci_weight}, obv_weight: {obv_weight}, stochastic_weight: {stochastic_weight}, macro_weight: {macro_weight}")
 
-            overall_score = (sentiment_weight + ma_weight + macd_weight + adx_weight +
-                            volume_weight + fibonacci_weight + obv_weight + stochastic_weight +
-                            macro_weight)
+            overall_score = (sentiment_weight + ma_weight + macd_weight + adx_weight + volume_weight + fibonacci_weight + obv_weight + stochastic_weight )
+            # overall_score+=macro_weight
 
             lg.info(f"Overall Score: {overall_score * 100}%")
             if overall_score >= 0.6:
