@@ -69,5 +69,6 @@ def analyze_news_sentiment(news_articles):
     for article in news_articles:
         sentiment_score = analyze_sentiment(article)
         overall_score += sentiment_score
-    
-    return overall_score
+
+    # Return average sentiment score if there are articles; otherwise, return 0
+    return overall_score / len(news_articles) if news_articles else 0
