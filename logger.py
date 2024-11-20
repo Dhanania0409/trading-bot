@@ -1,27 +1,34 @@
-import logging as lg
-import os
-from datetime import datetime
+import logging
 
 def initialise_logger():
-    logs_path = './logs'
-    if not os.path.exists(logs_path):
-        try:
-            os.makedirs(logs_path)
-        except OSError as e:
-            print(f"Creation of the directory {logs_path} failed due to: {e}")
-        else:
-            print(f"Successfully created log directory: {logs_path}")
-    date = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_name = f'{date}.log'
-    currentlog_path = os.path.join(logs_path, log_name)
-    lg.basicConfig(
-        filename=currentlog_path,
-        format='%(asctime)s - %(levelname)s: %(message)s',
-        level=lg.DEBUG
-    )
-    console_handler = lg.StreamHandler()
-    console_handler.setLevel(lg.DEBUG)  
-    console_handler.setFormatter(lg.Formatter('%(asctime)s - %(levelname)s: %(message)s'))
-    lg.getLogger().addHandler(console_handler)
-    lg.info('Logger initialized successfully.')
-    print(f"Log files are being created and stored at: {currentlog_path}")
+    """
+    Initialize and return a logger for the application.
+    """
+    logger = logging.getLogger('trading_bot')
+
+    # Check if the logger has handlers already, to avoid adding multiple handlers
+    if not logger.hasHandlers():
+        # Set the logging level
+        logger.setLevel(logging.INFO)
+        
+        # Create a console handler
+        console_handler = logging.StreamHandler()
+        
+        # Define a logging format
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        console_handler.setFormatter(formatter)
+        
+        # Add the console handler to the logger
+        logger.addHandler(console_handler)
+
+        # Optional: Add a file handler if you want to log to a file
+        file_handler = logging.FileHandler('trading_bot.log')
+        file_handler.setFormatter(formatter)
+        logger.addHandler(file_handler)
+    
+    return logger
+
+# Test log message
+if __name__ == "__main__":
+    logger = initialise_logger()
+    logger.info("Logger initialized successfully.")

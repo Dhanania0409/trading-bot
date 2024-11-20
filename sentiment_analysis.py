@@ -17,12 +17,13 @@ custom_lexicon = {
 sid.lexicon.update(custom_lexicon)
 
 # Finnhub API key
-API_KEY = 'crep6r9r01qnd5d02ne0crep6r9r01qnd5d02neg'
+API_KEY = 'csrrd39r01qj3u0ot1kgcsrrd39r01qj3u0ot1l0'
 previous_sentiment_scores = []
+
 def fetch_news_articles(ticker, start_date=None, end_date=None):
     base_url = 'https://finnhub.io/api/v1/company-news'
     if not start_date:
-        start_date = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
+        start_date = (datetime.now() - timedelta(days=90)).strftime('%Y-%m-%d')  # Wider date range
     if not end_date:
         end_date = datetime.now().strftime('%Y-%m-%d')
     params = {
